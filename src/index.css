@@ -25,6 +25,8 @@ h1 {
 
 .title{
   font-size: 1.3rem;
+  padding-left: 5px;
+  padding-top: 3px;
 }
 
 .app {
@@ -107,4 +109,27 @@ h1 {
 
 .bold {
   font-weight: 700;
+}
+
+.app .projectname{
+  position: fixed;     
+  text-align: center;    
+  bottom: 0px; 
+  width: 100%;
+}
+
+.app .timer1{
+  position: fixed;     
+  text-align: center;    
+  bottom: 2px; 
+  right: 0;
+  padding-right: 0.2%;
+}
+
+.app .timer2{
+  position: fixed;     
+  text-align: center;    
+  bottom: 2.5%; 
+  right: 0;
+  padding-right: 0.2%;
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './index.css';
+import Clock from 'react-live-clock';
 
 
 
@@ -77,8 +78,27 @@ function App() {
           }           
 
           </div>
+          <div className='timer1'> 
+          <Clock
+            format={'DD MMMM YYYY, dddd, h:mm A '}
+            timezone={'America/Chicago'}
+            ticking={true}/>
+           (US)
+          </div>
+        
+          <div className='timer2'>           
+            <Clock
+              format={'DD MMMM YYYY, dddd, h:mm A '}
+              ticking={true}/>
+            (MY)
+          </div>
 
+          <div className='projectname'>
+            © Tao project 2022
+          </div>    
       </div>
+
+
     );
   }
 
