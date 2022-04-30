@@ -28,7 +28,7 @@ function App() {
 
     return (
       <div className="app">
-        <h1 className='title'>Weather API</h1>
+        <h1 className='title'>Real-time Weather API</h1>
 
           <div className='search-box'>
             <input 
