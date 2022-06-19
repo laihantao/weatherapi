@@ -11,7 +11,9 @@ function App() {
   const [listOfData, setListOfData] = useState([])
   const [location,setLocation] = useState('')
 
-  const api =`https://api.openweathermap.org/data/2.5/weather?q=${location}&&units=imperial&appid=186c64c43d22e510069bb84e0f12ee36`
+  const api =`https://api.openweathermap.org/data/2.5/weather?q=${location}&&units=metric&appid=895284fb2d2c50a520ea537456963d9c`
+
+  
 
 
   const searchLocation =(event) => {
@@ -26,6 +28,37 @@ function App() {
       setLocation('')
     }
   }
+
+  let emoji = null;
+
+  if(typeof listOfData.main != "undefined"){
+    if(listOfData.weather[0].main === "Clouds"){
+      emoji = "fa-cloud"
+      // console.log(emoji)
+    }
+    else if (listOfData.weather[0].main === "Thunderstorm"){
+      emoji = "fa-bolt"
+      // console.log(emoji)
+    }
+    else if (listOfData.weather[0].main === "Drizzle"){
+      emoji = "fa-cloud-rain"
+      // console.log(emoji)
+    }
+    else if (listOfData.weather[0].main === "Rain"){
+      emoji = "fa-cloud-shower-heavy"
+      // console.log(emoji)
+    }
+    else if (listOfData.weather[0].main === "Snow"){
+      emoji = "fa-snow-flake"
+      // console.log(emoji)
+    }
+    else{
+      emoji = "fa-smog"
+      // console.log(emoji)
+    }
+  }
+
+
 
     return (
       <div className="app">
@@ -49,8 +82,14 @@ function App() {
               </div>
 
               <div className='temp'>
-                {listOfData.main ? <h1>{listOfData.main.temp.toFixed()}°F</h1> : null}
+                {listOfData.main ? <h1>{listOfData.main.temp.toFixed()}°C</h1> : null}
               </div>
+
+
+              <i className={`fas ${emoji} fa-4x`}></i>
+
+              {/* '{fas ${emoji} fa-4x}'          {'fas ${emoji} fa-4x'} */}
+
 
               <div className='description'>
                {listOfData.main ? <p>{listOfData.weather[0].main}</p> :null}
@@ -60,8 +99,8 @@ function App() {
           {listOfData.name !== undefined &&
             <div className='bottom'>
               <div className='realfeel'>
-                {listOfData.main ? <p className='bold'>{listOfData.main.feels_like.toFixed()}°F</p> :null}
-                <p>Real Feels</p>
+              {listOfData.main ? <p className='bold'>{listOfData.main.feels_like.toFixed()}°C</p> : null}
+              <p>Feels Like</p>
               </div>
               
               <div className='humidity'>
